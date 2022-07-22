@@ -4,9 +4,22 @@ function getValues() {
   let loanAmount = parseInt(document.getElementById("entryLoanAmount").value);
   let term = parseInt(document.getElementById("entryTerm").value);
   let rate = parseFloat(document.getElementById("entryRate").value);
-  let paymentObjects = calculatePayments(loanAmount, term, rate);
-  displayBigMonthlyPayment(loanAmount, term, rate);
-  displayPayments(paymentObjects);
+
+  if (
+    Number.isInteger(loanAmount) &&
+    Number.isInteger(term) &&
+    Number.isInteger(rate)
+  ) {
+    let paymentObjects = calculatePayments(loanAmount, term, rate);
+    displayBigMonthlyPayment(loanAmount, term, rate);
+    displayPayments(paymentObjects);
+  } else {
+    Swal.fire({
+      backdrop: false,
+      title: "INPUT",
+      text: "Please provide values for Loan Amount, Term (Months), and Interest Rate",
+    });
+  }
 }
 
 function calculatePayments(loanAmount, term, rate) {

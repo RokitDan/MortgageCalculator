@@ -1,5 +1,3 @@
-
-
 /* Sticky footer setup */
 
 html,
@@ -25,6 +23,11 @@ h5 {
   font-weight: 600;
 }
 
+th {
+  font-family: "Montserrat", "Lato", sans-serif;
+  font-weight: 800;
+}
+
 li {
   margin-top: 15px;
 }
@@ -32,6 +35,10 @@ li {
 .content {
   flex: 1;
   margin-top: 6rem;
+}
+
+.tableBalance{
+  font-weight: bold;
 }
 
 .footer {
@@ -69,6 +76,7 @@ li {
 
 /* BS button overides */
 .btn-primary {
+  font-family: "Montserrat", "Lato", sans-serif;
   color: white !important;
   background-color: var(--dls-primary-color) !important;
   border: none !important;
@@ -104,14 +112,14 @@ li {
 }
 
 .checklist > li i {
-  color: var( --dls-app-color1);
+  color: var(--dls-app-color1);
   font-size: 1rem;
   padding-right: 2px;
 }
 
 .devicons {
   font-size: 3.5rem;
-  color: var( --dls-app-color1) !important;
+  color: var(--dls-app-color1) !important;
 }
 
 .social {
@@ -143,8 +151,6 @@ li {
   padding: 1rem;
 }
 
-
-
 .numberChoice {
   border-radius: 15px;
   z-index: 1;
@@ -156,7 +162,7 @@ li {
 .numberChoice h4 {
   margin-bottom: 15px;
   margin-top: 7px;
-  color: var( --dls-app-color1);
+  color: var(--dls-app-color1);
   text-align: center;
 }
 
@@ -180,11 +186,9 @@ li {
   padding: 5rem;
 }
 
-
- .minHeight{
+.minHeight {
   min-height: 15vh;
- }
-
+}
 
 #fizzBuzzMainLogo {
   width: 100%;
@@ -199,45 +203,20 @@ li {
 }
 
 .minHeight3 {
-  min-height: 25vh;
+  min-height: 10vh;
 }
 
+.minHeight4 {
+  min-height: 7vh;
+}
 .rounded-corners {
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
   z-index: 1;
   border-radius: 10px;
 }
 
-/* MEDIA QUERIES */
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+.abelFont {
+  font-family: "Abel", "Lato", sans-serif;
 }
 
-/* // Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  #fizzBuzzMainLogo {
-    width: 70%;
-  }
-}
 
-/* // Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  #fizzBuzzMainLogo {
-    width: 60%;
-  }
-}
-
-/* // X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  #fizzBuzzMainLogo {
-    width: 50%;
-  }
-}
-
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-  #fizzBuzzMainLogo {
-    width: 37%;
-  }
-}
