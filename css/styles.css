@@ -78,7 +78,7 @@ li {
 .btn-primary {
   font-family: "Montserrat", "Lato", sans-serif;
   color: white !important;
-  background-color: var(--dls-primary-color) !important;
+  background-color: var(--dls-app-color1) !important;
   border: none !important;
 }
 
@@ -112,7 +112,7 @@ li {
 }
 
 .checklist > li i {
-  color: var(--dls-app-color1);
+  color: var(--dls-app-color1) !important;
   font-size: 1rem;
   padding-right: 2px;
 }
@@ -155,14 +155,14 @@ li {
   border-radius: 15px;
   z-index: 1;
   margin-bottom: 2rem;
-  background-color: black;
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .numberChoice h4 {
   margin-bottom: 15px;
   margin-top: 7px;
-  color: var(--dls-app-color1);
+  color: var(--dls-app-color1) !important;
   text-align: center;
 }
 
@@ -173,30 +173,27 @@ li {
   margin-bottom: 15px;
 }
 
+.numberChoice .bi{
+  color: var(--dls-app-color1);
+}
+
 #results div {
   border-radius: 100px;
   border: 5px solid var(--dls-app-background-color);
   text-align: center;
 }
 
-.honeycombBG {
-  background-image: url(/img/jonas-hensel-3Cpws7ibtfo-unsplash.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 5rem;
-}
+
 
 .minHeight {
   min-height: 15vh;
 }
 
-#fizzBuzzMainLogo {
+#mainLogo {
   width: 100%;
 }
 
-.minHeight {
-  min-height: 85vh;
-}
+
 
 .minHeight2 {
   min-height: 65vh;
@@ -219,4 +216,6 @@ li {
   font-family: "Abel", "Lato", sans-serif;
 }
 
-
+.appHeaderLogo {
+  display: none;
+}
