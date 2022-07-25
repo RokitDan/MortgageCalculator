@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>APP NAME: Coding Challenge by Danny Schellenberger</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -39,14 +39,17 @@
     />
 
     <!-- Lato Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Favicon -->
-    <link rel="icon" href="/img/DS_Favicon-01.png">
-    
-        <!-- Prism CSS -->
+    <link rel="icon" href="/img/DS_Favicon-01.png" />
+
+    <!-- Prism CSS -->
     <link rel="stylesheet" href="/css/prism.css" />
 
     <!-- Custom CSS -->
@@ -58,18 +61,17 @@
 
   <body>
     <!-- Nav -->
-<nav class="navbar text-uppercase navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container-fluid">
         <a class="navbar-brand" href="/index.html">
           <img
-            src="/img/DannyLogo2022.svg"
+            src="/img/logo/LendCalLogo.svg"
             alt="DS Logo"
             height="40"
             class="d-inline-block"
             id="appName"
           />
-         </a
-        >
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -86,188 +88,265 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/index.html"
-                >Home</a
-              >
+              <a class="nav-link" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/app.html">The App</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
+              <a class="nav-link active" aria-current="page" href="/code.html"
+                >The Code</a
+              >
             </li>
             <li class="nav-item">
-              <a rel="noopener" class="nav-link" href="https://github.com/RokitDan/" target="_blank">The Repo</a>
+              <a
+                rel="noopener"
+                class="nav-link"
+                href="https://github.com/RokitDan/"
+                target="_blank"
+                >The Repo</a
+              >
             </li>
             <li class="nav-item">
-              <a rel="noopener" class="nav-link" href="https://dannydevportfolio.netlify.app/" target="_blank">About</a>
+              <a
+                rel="noopener"
+                class="nav-link"
+                href="https://dannydevportfolio.netlify.app/"
+                target="_blank"
+                >About</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
-        <!-- MAIN -->
+    <!-- MAIN -->
     <main class="content">
       <div class="container mt-5 align-items-center justify-content-center">
-        <h1 class="border-bottom pb-2 mb-5 border-secondary text-uppercase">The Code</h1>
+        <h1 class="border-bottom pb-2 mb-5 border-secondary text-uppercase">
+          The Code
+        </h1>
         <div class="row">
-          <div class="col-12 col-lg-8">
+          <!-- <div class="col-12 col-lg-8">
             <pre class="line-numbers">
               <code class="language-javascript">
                 function getValues() {
-  let loanAmount = parseInt(document.getElementById("entryLoanAmount").value);
-  let term = parseInt(document.getElementById("entryTerm").value);
-  let rate = parseFloat(document.getElementById("entryRate").value);
+                        let loanAmount = parseInt(document.getElementById("entryLoanAmount").value);
+                        let term = parseInt(document.getElementById("entryTerm").value);
+                        let rate = parseFloat(document.getElementById("entryRate").value);
 
-  if (
-    Number.isInteger(loanAmount) &&
-    Number.isInteger(term) &&
-    Number.isInteger(rate)
-  ) {
-    let paymentObjects = calculatePayments(loanAmount, term, rate);
-    displayBigMonthlyPayment(loanAmount, term, rate);
-    displayPayments(paymentObjects);
-  } else {
-    Swal.fire({
-      backdrop: false,
-      title: "INPUT",
-      text: "Please provide values for Loan Amount, Term (Months), and Interest Rate",
-    });
-  }
-}
+                        if (
+                          Number.isInteger(loanAmount) &&
+                          Number.isInteger(term) &&
+                          Number.isInteger(rate)
+                        ) {
+                          let paymentObjects = calculatePayments(loanAmount, term, rate);
+                          displayBigMonthlyPayment(loanAmount, term, rate);
+                          displayPayments(paymentObjects);
+                        } else {
+                          Swal.fire({
+                            backdrop: false,
+                            title: "INPUT",
+                            text: "Please provide values for Loan Amount, Term (Months), and Interest Rate",
+                          });
+                        }
+                      }
 
-function calculatePayments(loanAmount, term, rate) {
-  const numberFormatter = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+                      function calculatePayments(loanAmount, term, rate) {
+                        const numberFormatter = Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        });
 
-  let paymentObjects = [];
+                        let paymentObjects = [];
 
-  for (let index = 0; index < term; index++) {
-    let month = index + 1;
-    let previousRemainingBalance = 0;
-    if (month === 1) {
-      previousRemainingBalance = loanAmount;
-    } else {
-      previousRemainingBalance = paymentObjects[index - 1].balance;
-    }
+                        for (let index = 0; index < term; index++) {
+                          let month = index + 1;
+                          let previousRemainingBalance = 0;
+                          if (month === 1) {
+                            previousRemainingBalance = loanAmount;
+                          } else {
+                            previousRemainingBalance = paymentObjects[index - 1].balance;
+                          }
 
-    let monthlyRate = rate / 1200;
-    let monthlyPayment =
-      (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
-    let interest = previousRemainingBalance * monthlyRate;
-    let principal = monthlyPayment - interest;
-    let balance = previousRemainingBalance - principal;
-    let totalInterest = 0;
-    if (month === 1) {
-      totalInterest = interest;
-    } else {
-      totalInterest = interest + paymentObjects[index - 1].totalInterest;
-    }
+                          let monthlyRate = rate / 1200;
+                          let monthlyPayment =
+                            (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
+                          let interest = previousRemainingBalance * monthlyRate;
+                          let principal = monthlyPayment - interest;
+                          let balance = previousRemainingBalance - principal;
+                          let totalInterest = 0;
+                          if (month === 1) {
+                            totalInterest = interest;
+                          } else {
+                            totalInterest = interest + paymentObjects[index - 1].totalInterest;
+                          }
 
-    let createPaymentObjects = {
-      month: month,
-      monthlyPayment: monthlyPayment,
-      principal: principal,
-      interest: interest,
-      totalInterest: totalInterest,
-      balance: balance,
-    };
+                          let createPaymentObjects = {
+                            month: month,
+                            monthlyPayment: monthlyPayment,
+                            principal: principal,
+                            interest: interest,
+                            totalInterest: totalInterest,
+                            balance: balance,
+                          };
 
-    paymentObjects.push(createPaymentObjects);
-  }
-  return paymentObjects;
-}
+                          paymentObjects.push(createPaymentObjects);
+                        }
+                        return paymentObjects;
+                      }
 
-function displayBigMonthlyPayment(loanAmount, term, rate) {
-  const numberFormatter = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-  let monthlyRate = rate / 1200;
-  let monthlyPayment =
-    (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
-  let totalInterest = monthlyPayment * term - loanAmount;
-  let cost = totalInterest + loanAmount;
+                      function displayBigMonthlyPayment(loanAmount, term, rate) {
+                        const numberFormatter = Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        });
+                        let monthlyRate = rate / 1200;
+                        let monthlyPayment =
+                          (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
+                        let totalInterest = monthlyPayment * term - loanAmount;
+                        let cost = totalInterest + loanAmount;
 
-  let viewPayment = document.getElementById("viewPayment");
-  let displayPrincipal = document.getElementById("displayPrincipal");
-  let displayInterest = document.getElementById("displayInterest");
-  let displayCost = document.getElementById("displayCost");
+                        let viewPayment = document.getElementById("viewPayment");
+                        let displayPrincipal = document.getElementById("displayPrincipal");
+                        let displayInterest = document.getElementById("displayInterest");
+                        let displayCost = document.getElementById("displayCost");
 
-  viewPayment.innerHTML = numberFormatter.format(monthlyPayment);
-  displayPrincipal.innerHTML = numberFormatter.format(loanAmount);
-  displayInterest.innerHTML = numberFormatter.format(totalInterest);
-  displayCost.innerHTML = numberFormatter.format(cost);
-}
+                        viewPayment.innerHTML = numberFormatter.format(monthlyPayment);
+                        displayPrincipal.innerHTML = numberFormatter.format(loanAmount);
+                        displayInterest.innerHTML = numberFormatter.format(totalInterest);
+                        displayCost.innerHTML = numberFormatter.format(cost);
+                      }
 
-function displayPayments(paymentObjects) {
-  const numberFormatter = Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+                      function displayPayments(paymentObjects) {
+                        const numberFormatter = Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        });
 
-  let paymentDataTemplate = document.getElementById("paymentDataTemplate");
-  let tBodyPayments = document.getElementById("tBodyPayments");
-  tBodyPayments.innerHTML = "";
+                        let paymentDataTemplate = document.getElementById("paymentDataTemplate");
+                        let tBodyPayments = document.getElementById("tBodyPayments");
+                        tBodyPayments.innerHTML = "";
 
-  for (let index = 0; index < paymentObjects.length; index++) {
-    let paymentObjectNode = document.importNode(
-      paymentDataTemplate.content,
-      true
-    );
+                        for (let index = 0; index < paymentObjects.length; index++) {
+                          let paymentObjectNode = document.importNode(
+                            paymentDataTemplate.content,
+                            true
+                          );
 
-    let tBodyColumns = paymentObjectNode.querySelectorAll("td");
-    tBodyColumns[0].textContent = paymentObjects[index].month;
-    tBodyColumns[1].textContent = numberFormatter.format(
-      paymentObjects[index].monthlyPayment
-    );
-    tBodyColumns[2].textContent = numberFormatter.format(
-      paymentObjects[index].principal
-    );
-    tBodyColumns[3].textContent = numberFormatter.format(
-      paymentObjects[index].interest
-    );
-    tBodyColumns[4].textContent = numberFormatter.format(
-      paymentObjects[index].totalInterest
-    );
-    tBodyColumns[5].textContent = numberFormatter.format(
-      paymentObjects[index].balance
-    );
-    tBodyPayments.appendChild(paymentObjectNode);
-  }
-}
+                          let tBodyColumns = paymentObjectNode.querySelectorAll("td");
+                          tBodyColumns[0].textContent = paymentObjects[index].month;
+                          tBodyColumns[1].textContent = numberFormatter.format(
+                            paymentObjects[index].monthlyPayment
+                          );
+                          tBodyColumns[2].textContent = numberFormatter.format(
+                            paymentObjects[index].principal
+                          );
+                          tBodyColumns[3].textContent = numberFormatter.format(
+                            paymentObjects[index].interest
+                          );
+                          tBodyColumns[4].textContent = numberFormatter.format(
+                            paymentObjects[index].totalInterest
+                          );
+                          tBodyColumns[5].textContent = numberFormatter.format(
+                            paymentObjects[index].balance
+                          );
+                          tBodyPayments.appendChild(paymentObjectNode);
+                        }
+                      }
 
               </code>
             </pre>
-          </div>
+          </div> -->
           <div class="col-12 col-lg-4">
-            <p class="fw-bold">
-              COMING SOON!</p>
-           
+            <h3 class="text-uppercase mb-4">How it Works</h3>
+            <ol>
+              <li>
+                getvalues() is the driver function of the application that
+                encompasses all logic in the program
+              </li>
+
+              <li>
+                First, the program gets user-entered values from the text inputs
+                in the HTML document (text inputs were used instead of number
+                inputs to provide greater compatibility with Apple devices):
+                <ul class="fst-italic">
+                  <li class="fw-bold">loanAmount</li>
+                  <li><span class="fw-bold">term</span> (in MONTHS)</li>
+                  <li><span class="fw-bold">rate</span> (of INTEREST)</li>
+                </ul>
+              </li>
+              <li>
+                The application will show the user an error alert if they try to
+                enter any characters other than numbers or if they do not enter
+                any values at all.
+              </li>
+              <li>
+                While receiving the values from the text inputs, the program
+                then parses the values of
+                <span class="fw-bold">loanAmount</span> and
+                <span class="fw-bold">term</span>
+                and parses the value for RATE into a float. LendCal requires
+                data to be integers and floats in order to operate.
+              </li>
+              <li>
+                The <span class="fw-bold">calculatePayments</span> function
+                receives <span class="fw-bold">loanAmount</span>,
+                <span class="fw-bold">term</span>, and
+                <span class="fw-bold">rate</span> as arguments. This function is
+                responsible for generating an array of objects which will be
+                displayed in a table. These objects, called
+                <span class="fw-bold">paymentObjects</span>, contain properties
+                of
+                <span class="fst-italic"
+                  >month, monthlyPayment, principal, interest, totalInterest,
+                  and balance.</span
+                >
+              </li>
+              <li><span class="fst-italic">To be continued</span></li>
+            </ol>
           </div>
-        </div>
         </div>
       </div>
     </main>
-<!-- FOOTER -->
-<footer class="footer mt-5">
+    <!-- FOOTER -->
+    <footer class="footer mt-5">
       <div class="container-fluid">
         <div class="row row-cols-1 row-cols-md-3 gy-4">
-            <div class="col order-last order-md-first">
-                <span class="muted">&copy; 2022 Danny Schellenberger | dleeschell@gmail.com</span>
-            </div>
-            <div class="col text-center">
-                <a rel="noopener" class="nav-link" href="https://dannydevportfolio.netlify.app/" target="_blank"><img src="/img/DannyLogo2022white.svg" alt="Danny DS Monogram" height="40"></a>
-            </div>
-            <div class="col d-flex justify-content-center justify-content-lg-end">
+          <div class="col order-last order-md-first">
+            <span class="muted"
+              >&copy; 2022 Danny Schellenberger | dleeschell@gmail.com</span
+            >
+          </div>
+          <div class="col text-center">
+            <a
+              rel="noopener"
+              class="nav-link"
+              href="https://dannydevportfolio.netlify.app/"
+              target="_blank"
+              ><img
+                src="/img/DannyLogo2022white.svg"
+                alt="Danny DS Monogram"
+                height="40"
+            /></a>
+          </div>
+          <div class="col d-flex justify-content-center justify-content-lg-end">
             <div class="row">
               <div class="col social">
-                <a rel="noopener" href="https://www.linkedin.com/in/danny-schellenberger-9b4b0166/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a
+                  rel="noopener"
+                  href="https://www.linkedin.com/in/danny-schellenberger-9b4b0166/"
+                  target="_blank"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
               </div>
               <div class="col social">
-                <a rel="noopener" href="https://github.com/RokitDan/" target="_blank"><i class="bi bi-github"></i></a>
+                <a
+                  rel="noopener"
+                  href="https://github.com/RokitDan/"
+                  target="_blank"
+                  ><i class="bi bi-github"></i
+                ></a>
               </div>
             </div>
           </div>
@@ -282,14 +361,13 @@ function displayPayments(paymentObjects) {
     ></script>
     <!-- <script src="/js/site.js"></script> -->
     <script src="/js/prism.js"></script>
-    <script>Prism.plugins.NormalizeWhitespace.setDefaults({
-        'remove-trailing': true,
-        'remove-indent': true,
-        'left-trim': true,
-        'right-trim': true
-    })
+    <script>
+      Prism.plugins.NormalizeWhitespace.setDefaults({
+        "remove-trailing": true,
+        "remove-indent": true,
+        "left-trim": true,
+        "right-trim": true,
+      });
     </script>
-
-
-</body>
+  </body>
 </html>

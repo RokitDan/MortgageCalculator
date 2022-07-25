@@ -5,6 +5,8 @@ function getValues() {
   let term = parseInt(document.getElementById("entryTerm").value);
   let rate = parseFloat(document.getElementById("entryRate").value);
 
+  let entryLoanAmount = document.getElementById("entryLoanAmount");
+
   if (
     Number.isInteger(loanAmount) &&
     Number.isInteger(term) &&
@@ -14,6 +16,7 @@ function getValues() {
     displayBigMonthlyPayment(loanAmount, term, rate);
     displayPayments(paymentObjects);
   } else {
+    loanAmount = "";
     Swal.fire({
       backdrop: false,
       title: "INPUT",
