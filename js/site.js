@@ -5,16 +5,14 @@ function getValues() {
   let term = parseInt(document.getElementById("entryTerm").value);
   let rate = parseFloat(document.getElementById("entryRate").value);
 
-  let entryLoanAmount = document.getElementById("entryLoanAmount");
-
   if (
     Number.isInteger(loanAmount) &&
     Number.isInteger(term) &&
     Number.isInteger(rate)
   ) {
-    let paymentObjects = calculatePayments(loanAmount, term, rate);
+    let paymentObjectArray = calculatePayments(loanAmount, term, rate);
     displayBigMonthlyPayment(loanAmount, term, rate);
-    displayPayments(paymentObjects);
+    displayPayments(paymentObjectArray);
   } else {
     loanAmount = "";
     Swal.fire({
@@ -31,7 +29,11 @@ function calculatePayments(loanAmount, term, rate) {
     currency: "USD",
   });
 
-  let paymentObjects = [];
+  let paymentObjectArray = [];
+
+  let monthlyRate = rate / 1200;
+  let monthlyPayment =
+    (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
 
   for (let index = 0; index < term; index++) {
     let month = index + 1;
@@ -39,12 +41,9 @@ function calculatePayments(loanAmount, term, rate) {
     if (month === 1) {
       previousRemainingBalance = loanAmount;
     } else {
-      previousRemainingBalance = paymentObjects[index - 1].balance;
+      previousRemainingBalance = paymentObjectArray[index - 1].balance;
     }
 
-    let monthlyRate = rate / 1200;
-    let monthlyPayment =
-      (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
     let interest = previousRemainingBalance * monthlyRate;
     let principal = monthlyPayment - interest;
     let balance = previousRemainingBalance - principal;
@@ -52,10 +51,10 @@ function calculatePayments(loanAmount, term, rate) {
     if (month === 1) {
       totalInterest = interest;
     } else {
-      totalInterest = interest + paymentObjects[index - 1].totalInterest;
+      totalInterest = interest + paymentObjectArray[index - 1].totalInterest;
     }
 
-    let createPaymentObjects = {
+    let paymentObject = {
       month: month,
       monthlyPayment: monthlyPayment,
       principal: principal,
@@ -64,9 +63,9 @@ function calculatePayments(loanAmount, term, rate) {
       balance: balance,
     };
 
-    paymentObjects.push(createPaymentObjects);
+    paymentObjectArray.push(paymentObject);
   }
-  return paymentObjects;
+  return paymentObjectArray;
 }
 
 function displayBigMonthlyPayment(loanAmount, term, rate) {

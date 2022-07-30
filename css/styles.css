@@ -37,7 +37,7 @@ li {
   margin-top: 6rem;
 }
 
-.tableBalance{
+.tableBalance {
   font-weight: bold;
 }
 
@@ -118,7 +118,7 @@ li {
 }
 
 .devicons {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   color: var(--dls-app-color1) !important;
 }
 
@@ -174,7 +174,7 @@ li {
   margin-bottom: 15px;
 }
 
-.numberChoice .bi{
+.numberChoice .bi {
   color: var(--dls-app-color1);
 }
 
@@ -184,8 +184,6 @@ li {
   text-align: center;
 }
 
-
-
 .minHeight {
   min-height: 15vh;
 }
@@ -193,8 +191,6 @@ li {
 #mainLogo {
   width: 100%;
 }
-
-
 
 .minHeight2 {
   min-height: 65vh;
@@ -216,5 +212,3 @@ li {
 .abelFont {
   font-family: "Abel", "Lato", sans-serif;
 }
-
-.

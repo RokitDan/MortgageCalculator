@@ -1,13 +1,23 @@
 /* MEDIA QUERIES */
 
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+/* // Small devices (landscape phones, 400px and up) */
+@media (min-width: 400px) {
+  .devicons {
+    font-size: 3.2rem;
+  }
 }
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   #mainLogo {
     width: 70%;
+  }
+
+  .devicons {
+    font-size: 3rem;
+  }
+  .minHeight {
+    min-height: 10vh;
   }
 }
 
@@ -16,7 +26,9 @@
   #mainLogo {
     width: 60%;
   }
-  
+  .minHeight {
+    min-height: 25vh;
+  }
 }
 
 /* // X-Large devices (large desktops, 1200px and up) */

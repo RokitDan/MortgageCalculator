@@ -46,7 +46,7 @@
       rel="stylesheet"
     />
 
-      <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="/img/logo/LendCalLogo.svg" />
 
     <!-- Prism CSS -->
@@ -123,11 +123,9 @@
     <!-- MAIN -->
     <main class="content">
       <div class="container mt-5 align-items-center justify-content-center">
-        <h1 class="border-bottom pb-2 mb-5 border-secondary text-uppercase">
-          The Code
-        </h1>
+        <h1 class="border-bottom pb-2 mb-5 border-secondary">The Code</h1>
         <div class="row">
-          <!-- <div class="col-12 col-lg-8">
+          <div class="col-12 col-lg-8">
             <pre class="line-numbers">
               <code class="language-javascript">
                 function getValues() {
@@ -257,19 +255,20 @@
 
               </code>
             </pre>
-          </div> -->
+          </div>
           <div class="col-12 col-lg-4">
-            <h3 class="text-uppercase mb-4">How it Works</h3>
+            <h3 class="mb-4">How it Works</h3>
             <ol>
               <li>
-                getvalues() is the driver function of the application that
-                encompasses all logic in the program
+                <span class="fw-bold">getvalues()</span> is the driver function
+                of the application that encompasses all logic in the program
               </li>
 
               <li>
-                First, the program gets user-entered values from the text inputs
-                in the HTML document (text inputs were used instead of number
-                inputs to provide greater compatibility with Apple devices):
+                First, the program gets user-entered values from three text
+                inputs in the HTML document (text inputs were used instead of
+                number inputs to provide greater compatibility with Apple
+                devices):
                 <ul class="fst-italic">
                   <li class="fw-bold">loanAmount</li>
                   <li><span class="fw-bold">term</span> (in MONTHS)</li>
@@ -282,28 +281,73 @@
                 any values at all.
               </li>
               <li>
-                While receiving the values from the text inputs, the program
-                then parses the values of
-                <span class="fw-bold">loanAmount</span> and
-                <span class="fw-bold">term</span>
-                and parses the value for RATE into a float. LendCal requires
-                data to be integers and floats in order to operate.
+                While receiving the values from the text inputs, the
+                <span class="fw-bold">getvalues()</span> function parses the
+                values of <span class="fw-bold">loanAmount</span> and
+                <span class="fw-bold">term</span> into integers and parses the
+                value for <span class="fw-bold">rate</span> into a float.
+                LendCal requires data to be integers and floats in order to
+                operate.
               </li>
               <li>
-                The <span class="fw-bold">calculatePayments</span> function
+                The <span class="fw-bold">calculatePayments()</span> function
                 receives <span class="fw-bold">loanAmount</span>,
                 <span class="fw-bold">term</span>, and
-                <span class="fw-bold">rate</span> as arguments. This function is
-                responsible for generating an array of objects which will be
-                displayed in a table. These objects, called
-                <span class="fw-bold">paymentObjects</span>, contain properties
-                of
+                <span class="fw-bold">rate</span> as parameters. This function
+                is responsible for generating an array of objects which will be
+                displayed in a table. This array, called
+                <span class="fw-bold">paymentObjectArray</span>, has indices of
+                objects which contain properties of
                 <span class="fst-italic"
                   >month, monthlyPayment, principal, interest, totalInterest,
                   and balance.</span
                 >
               </li>
-              <li><span class="fst-italic">To be continued</span></li>
+              <li>
+                <span class="fw-bold">paymentObjectArray</span> is initialized
+                as an empty array.
+              </li>
+              <li>
+                Within <span class="fw-bold">calculatePayments()</span>, all of
+                the mathematics required to calculate all values for the
+                properties of <span class="fw-bold">paymentObject</span> exists
+                inside of a <span class="fst-italic">for loop</span>.
+              </li>
+              <li>
+                A new index of <span class="fw-bold">paymentObjects</span> is
+                created each time the
+                <span class="fst-italic">for loop</span> runs. The total indices
+                of <span class="fw-bold">paymentObjects</span> matches the value
+                entered by the user for <span class="fw-bold">term</span>.
+              </li>
+              <li>
+                The <span class="fw-bold">displayPayments()</span> function
+                copies a template from the HTML document called
+                <span class="fw-bold">paymentDataTemplate</span> and inserts the
+                properties of each index of all
+                <span class="fw-bold">paymentObjects</span> as table data tags
+                inside of an HTML table with the ID of
+                <span class="fst-italic">tBodyPayments</span>.
+              </li>
+              <li>
+                <span class="fst-italic">tBodyPayments</span> displays table
+                data created by
+                <span class="fw-bold">displayPayments()</span> as a table. The
+                indices of <span class="fw-bold">paymentObjects</span> are
+                displayed as rows in the table, and the properties of each
+                object are displayed as columns. The values of each property are
+                displayed as table data tags in the table.
+              </li>
+              <li>
+                The function
+                <span class="fw-bold">displayBigMonthlyPayment()</span> uses
+                some of the same mathematical formulations as what is found in
+                the <span class="fst-italic">for loop</span> in
+                <span class="fw-bold"> calculatePayments()</span>.
+                <span class="fw-bold">displayBigMonthlyPayment()</span> is
+                responsible for showing the user their monthly payment, total
+                principal, total interest, and total cost of their loan.
+              </li>
             </ol>
           </div>
         </div>
